@@ -5,17 +5,22 @@ pygame.init()
 
 #seteo de los valores de la pantalla principal
 SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 800
+SCREEN_HEIGHT = 790
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-#colores utiles del fondo y negro
-BG = (50, 50, 50)
+#colores utiles
+gris = (50, 50, 50)
 negro = (0, 0, 0)
+blanco = (255, 255, 255)
 
 pygame.display.set_caption('Jueguito')
 pygame_icon = pygame.image.load('imagenes/icono.jpg')
 pygame.display.set_icon(pygame_icon)
+
+#creacion del fondo
+
+fondo = pygame.image.load('imagenes/Background.png').convert_alpha()
 
 #creacion de las spritesheets para animacion de personaje
 master_animacion = []
@@ -45,7 +50,7 @@ run = True
 while run:
 
     #actualiza background
-    screen.fill(BG)
+    screen.blit(fondo, (0, 0))
 
     #actualiza la animacion
     current_time = pygame.time.get_ticks()
